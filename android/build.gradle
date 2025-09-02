@@ -2,14 +2,14 @@ group 'jp.espresso3389.pdf_render'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '2.0.21'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:8.6.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -29,7 +29,7 @@ android {
         namespace("jp.espresso3389.pdf_render")
     }
     
-    compileSdkVersion 31
+    compileSdkVersion 35
      
     kotlinOptions {
         jvmTarget = '1.8'
@@ -43,7 +43,13 @@ android {
         }
     }
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 23
+        ndkVersion "28.2.13676358"
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+            }
+        }
     }
     lintOptions {
         disable 'InvalidPackage'
