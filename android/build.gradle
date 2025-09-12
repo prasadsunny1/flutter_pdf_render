@@ -44,7 +44,6 @@ android {
     }
     defaultConfig {
         minSdkVersion 23
-        ndkVersion "28.2.13676358"
         externalNativeBuild {
             cmake {
                 arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
